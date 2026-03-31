@@ -26,8 +26,12 @@ export async function payCreator(creatorAddress: string, priceXLM: string, sende
     
     const response = await server.submitTransaction(txToSubmit);
     return response;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Payment failed", error);
-    throw error;
+    if (error?.response?.data?.extras?.result_codes) {
+      console.error("Horizon Error Details:", error.response.data.extras.result_codes);
+      throw new Error(`Transaction failed: ${JSON.stringify(error.response.data.extras.result_codes)}`);
+    }
+    throw new Error(error.message || "Unknown error during payment");
   }
 }

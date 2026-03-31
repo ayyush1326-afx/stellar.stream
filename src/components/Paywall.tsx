@@ -38,9 +38,9 @@ export default function Paywall({ item }: { item: ContentItem }) {
       
       setUnlocked(true);
       toast.success("Payment successful! Content unlocked.");
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      toast.error("Failed to process payment. Make sure you are on Testnet and have XLM.");
+      toast.error(err.message || "Failed to process payment. Make sure you are on Testnet and have XLM.");
     } finally {
       setLoading(false);
     }
