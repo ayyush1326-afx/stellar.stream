@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,9 +25,10 @@ export default function RootLayout({
         <div className="fixed -bottom-8 left-20 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 pointer-events-none"></div>
         <Navbar />
         <Toaster position="bottom-right" toastOptions={{ style: { background: '#1e1e2f', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' } }} />
-        <main className="relative z-10 pt-20">
+        <main className="relative z-10 pt-20 min-h-[calc(100vh-200px)]">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );

@@ -14,8 +14,14 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex items-center gap-6">
+            <Link href="/feed" className="text-gray-300 hover:text-white font-medium transition-colors">
+              Feed
+            </Link>
             <Link href="/upload" className="text-gray-300 hover:text-white font-medium transition-colors">
               Create
+            </Link>
+            <Link href="/history" className="text-gray-300 hover:text-white font-medium transition-colors">
+              History
             </Link>
             <WalletConnect />
           </div>
