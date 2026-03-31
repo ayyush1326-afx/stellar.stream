@@ -32,6 +32,42 @@ export default function Home() {
           </Link>
         </div>
       </div>
+
+      {/* How It Works Section */}
+      <div className="mt-32 max-w-6xl mx-auto w-full px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+          How It Works
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="glass p-8 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/20 rounded-full blur-3xl -mr-16 -mt-16 transition-all group-hover:bg-indigo-500/30"></div>
+            <div className="w-12 h-12 bg-indigo-500/20 rounded-2xl flex items-center justify-center mb-6 border border-indigo-500/30 text-indigo-400 font-bold text-xl">1</div>
+            <h3 className="text-xl font-bold text-white mb-3">Connect Wallet</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Link your Freighter wallet on the Stellar Testnet. No email or password required.
+            </p>
+          </div>
+
+          <div className="glass p-8 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl -mr-16 -mt-16 transition-all group-hover:bg-purple-500/30"></div>
+            <div className="w-12 h-12 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-6 border border-purple-500/30 text-purple-400 font-bold text-xl">2</div>
+            <h3 className="text-xl font-bold text-white mb-3">Discover or Create</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Browse the feed for premium content, or upload your own work and set a custom price in XLM.
+            </p>
+          </div>
+
+          <div className="glass p-8 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/20 rounded-full blur-3xl -mr-16 -mt-16 transition-all group-hover:bg-pink-500/30"></div>
+            <div className="w-12 h-12 bg-pink-500/20 rounded-2xl flex items-center justify-center mb-6 border border-pink-500/30 text-pink-400 font-bold text-xl">3</div>
+            <h3 className="text-xl font-bold text-white mb-3">Pay-per-View</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Unlock specific content with instant, low-fee micropayments executed via Soroban Smart Contracts.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
