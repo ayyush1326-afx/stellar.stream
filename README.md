@@ -4,9 +4,26 @@ StellarStream is a "Pay-per-View" or "Pay-per-Minute" platform where creators ca
 
 ## 🚀 Live Demo & Assets
 - **Live Vercel URL**: [https://stellarstream-mvp.vercel.app](https://stellarstream-mvp.vercel.app)
-- **Demo Video**: [Watch MVP Demo Recording](https://www.loom.com/share/placeholder-for-submission)
 - **Architecture**: [`ARCHITECTURE.md`](ARCHITECTURE.md) contains the system sequence diagram.
-- **Git History**: See the [commit history](https://github.com/placeholder/commits) for 12 meaningful commits executing Phase 1 and 2.
+- **Git History**: See the [commit history](https://github.com/ayyush1326-afx/stellar.stream/commits/main) for 12 meaningful commits executing Phase 1 and 2.
+
+### 🎥 Demo Recordings
+#### Phase 1: Core Flow
+![StellarStream Core Demo](docs/assets/stellarstream_verified_1774964354546.webp)
+
+#### Phase 2: My Content & How It Works
+![StellarStream Phase 2 Demo](docs/assets/phase_2_demo_1774964836154.webp)
+
+### 📸 Screenshots
+<details>
+<summary>Click to view screenshots</summary>
+
+**How It Works Section:**
+![How It Works](docs/assets/how_it_works_section_phase2_1774964879738.png)
+
+**My Content Dashboard:**
+![My Content](docs/assets/my_content_page_phase2_1774964903112.png)
+</details>
 
 ## 🛠 Tech Stack
 - Frontend: Next.js + Tailwind CSS + Framer Motion
