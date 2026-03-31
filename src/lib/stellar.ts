@@ -20,8 +20,9 @@ export async function payCreator(creatorAddress: string, priceXLM: string, sende
       .setTimeout(30)
       .build();
 
-    const signedXdr = await signTransaction(tx.toXDR(), { network: "TESTNET" });
-    const txToSubmit = TransactionBuilder.fromXDR(signedXdr as string, Networks.TESTNET);
+    const signedXdr = await signTransaction(tx.toXDR() as any, { network: "TESTNET" } as any);
+    const finalXdr = typeof signedXdr === 'string' ? signedXdr : (signedXdr as any).signedTxXdr;
+    const txToSubmit = TransactionBuilder.fromXDR(finalXdr as string, Networks.TESTNET);
     
     const response = await server.submitTransaction(txToSubmit);
     return response;
