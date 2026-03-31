@@ -4,6 +4,7 @@ import { useState } from "react";
 import { getAddress, isConnected } from "@stellar/freighter-api";
 import { useRouter } from "next/navigation";
 import { ContentItem } from "@/lib/store";
+import toast from "react-hot-toast";
 
 export default function UploadPage() {
   const router = useRouter();
@@ -18,14 +19,14 @@ export default function UploadPage() {
 
     try {
       if (!(await isConnected())) {
-        alert("Please connect Freighter wallet first.");
+        toast.error("Please connect Freighter wallet first.");
         setLoading(false);
         return;
       }
 
       const { address } = await getAddress();
       if (!address) {
-        alert("Wallet address not found.");
+        toast.error("Wallet address not found.");
         setLoading(false);
         return;
       }
@@ -46,10 +47,11 @@ export default function UploadPage() {
         body: JSON.stringify(newItem)
       });
 
+      toast.success("Content published successfully!");
       router.push("/feed");
     } catch (err) {
       console.error(err);
-      alert("Failed to create content");
+      toast.error("Failed to create content");
     } finally {
       setLoading(false);
     }

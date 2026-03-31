@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ContentItem } from "@/lib/store";
 import { getAddress, isConnected } from "@stellar/freighter-api";
 import { payCreator } from "@/lib/stellar";
+import toast from "react-hot-toast";
 
 export default function Paywall({ item }: { item: ContentItem }) {
   const [unlocked, setUnlocked] = useState(false);
@@ -13,14 +14,14 @@ export default function Paywall({ item }: { item: ContentItem }) {
     setLoading(true);
     try {
       if (!(await isConnected())) {
-        alert("Please connect your Freighter wallet to unlock this content.");
+        toast.error("Please connect your Freighter wallet to unlock this content.");
         setLoading(false);
         return;
       }
 
       const { address } = await getAddress();
       if (!address) {
-        alert("Wallet address not found.");
+        toast.error("Wallet address not found.");
         setLoading(false);
         return;
       }
@@ -36,9 +37,10 @@ export default function Paywall({ item }: { item: ContentItem }) {
       await payCreator(item.creator, item.priceXLM, address);
       
       setUnlocked(true);
+      toast.success("Payment successful! Content unlocked.");
     } catch (err) {
       console.error(err);
-      alert("Failed to process payment. Make sure you are on Testnet and have XLM.");
+      toast.error("Failed to process payment. Make sure you are on Testnet and have XLM.");
     } finally {
       setLoading(false);
     }
