@@ -99,7 +99,17 @@ export default function HistoryPage() {
               </div>
               <div className="text-right">
                 <p className="font-bold text-cyan-400">{tx.amount}</p>
-                <p className="text-xs text-slate-500">{tx.date}</p>
+                <div className="flex flex-col items-end gap-1">
+                  <p className="text-xs text-slate-500">{tx.date}</p>
+                  <a 
+                    href={`https://stellar.expert/explorer/testnet/tx/${tx.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] text-cyan-500/50 hover:text-cyan-400 transition-colors underline decoration-cyan-500/20"
+                  >
+                    View on Explorer
+                  </a>
+                </div>
               </div>
             </div>
           ))}
