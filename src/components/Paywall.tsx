@@ -28,6 +28,8 @@ export default function Paywall({ item }: { item: ContentItem }) {
 
       // If the user is the creator, let them view it
       if (address === item.creator) {
+        console.log("User is the creator. Unlocking content for free.");
+        toast("Creator access granted: Content unlocked for free.");
         setUnlocked(true);
         setLoading(false);
         return;
