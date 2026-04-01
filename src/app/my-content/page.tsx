@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getAddress, isConnected } from "@stellar/freighter-api";
 import { ContentItem } from "@/lib/store";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 export default function MyContentPage() {
   const [address, setAddress] = useState<string | null>(null);
@@ -86,7 +87,16 @@ export default function MyContentPage() {
               
               <div className="flex justify-between items-center text-xs text-slate-500 border-t border-white/10 pt-4 mt-auto">
                 <span>{new Date(item.createdAt).toLocaleDateString()}</span>
-                <span className="font-mono bg-white/5 px-2 py-1 rounded">ID: {item.id.slice(0,8)}</span>
+                <button 
+                  onClick={() => {
+                    navigator.clipboard.writeText(item.id);
+                    toast.success("Content ID copied!");
+                  }}
+                  className="font-mono bg-white/5 hover:bg-white/10 px-2 py-1 rounded transition-colors flex items-center gap-1 group/btn"
+                >
+                  ID: {item.id.slice(0,8)}...
+                  <span className="opacity-0 group-hover/btn:opacity-100 transition-opacity">📋</span>
+                </button>
               </div>
             </div>
           ))}
