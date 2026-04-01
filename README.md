@@ -67,6 +67,15 @@ Based on user suggestions, we implemented the following enhancements in our firs
 ## 🏗 Architecture
 See the [`ARCHITECTURE.md`](ARCHITECTURE.md) file for the flow diagram.
 
+## ✅ Level 5 Submission Checklist
+- [x] **MVP Fully Functional**: Content locking/unlocking works with Freighter.
+- [x] **5+ Real Testnet Users**: Verifiable wallet addresses listed.
+- [x] **Iteration 1 Complete**: Mobile menu, Dashboard, and UI polish implemented.
+- [x] **Architecture Document**: `ARCHITECTURE.md` with system flow diagram.
+- [x] **Git History**: 10+ meaningful commits (Phase 1, Phase 2, and Refinements).
+- [ ] **Live Demo Link**: [StellarStream Vercel](https://stellarstream-mvp.vercel.app)
+- [ ] **Demo Video**: [Youtube/Loom Link Placeholder]
+
 ## Getting Started
 ```bash
 # Install dependencies
