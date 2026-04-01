@@ -33,6 +33,13 @@ export default function Navbar() {
             <Link href="/history" className="text-gray-300 hover:text-white font-medium transition-colors">
               History
             </Link>
+            <div className="hidden lg:flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs font-medium text-slate-300">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              Stellar Testnet
+            </div>
             <WalletConnect />
           </div>
 
@@ -66,7 +73,14 @@ export default function Navbar() {
           <Link href="/history" onClick={() => setMenuOpen(false)} className="block text-gray-300 hover:text-white font-medium py-2 transition-colors">
             History
           </Link>
-          <div className="pt-2 border-t border-white/10">
+          <div className="pt-2 border-t border-white/10 flex items-center justify-between">
+            <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs font-medium text-slate-300">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              Testnet
+            </div>
             <WalletConnect />
           </div>
         </div>

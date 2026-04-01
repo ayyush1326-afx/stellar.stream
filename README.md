@@ -7,7 +7,9 @@ StellarStream is a "Pay-per-View" or "Pay-per-Minute" platform where creators ca
 - **Architecture**: [`ARCHITECTURE.md`](ARCHITECTURE.md) contains the system sequence diagram.
 - **Git History**: See the [commit history](https://github.com/ayyush1326-afx/stellar.stream/commits/main) for 12 meaningful commits executing Phase 1 and 2.
 
-### 🎥 Demo Recordings
+### 🎥 Demo Recording (Automated Walkthrough)
+![StellarStream Full Walkthrough](docs/assets/stellarstream_final_demo.webp)
+
 #### Phase 1: Core Flow
 ![StellarStream Core Demo](docs/assets/stellarstream_verified_1774964354546.webp)
 
@@ -46,7 +48,7 @@ The following addresses successfully connected, browsed, and performed XLM micro
 ### 📊 Feedback Analysis
 We used a Google Form to collect qualitative data and wallet addresses for verification.
 - **Feedback Collection Form**: [View Form](https://docs.google.com/forms/d/e/1FAIpQLS...) <!-- Replace with actual link -->
-- **Raw Data Export (Excel)**: [Download Responses](https://docs.google.com/spreadsheets/d/...) <!-- Replace with actual link -->
+- **Raw Data Export (Excel)**: [Download Responses](https://docs.google.com/spreadsheets/d/1jUSVc-steIQ8hinLEYy1Lt3JIQmPHKiR7loyY6hz1rc/edit?usp=sharing)
 
 | Metrics | Result |
 | :--- | :--- |
@@ -74,7 +76,7 @@ See the [`ARCHITECTURE.md`](ARCHITECTURE.md) file for the flow diagram.
 - [x] **Architecture Document**: `ARCHITECTURE.md` with system flow diagram.
 - [x] **Git History**: 10+ meaningful commits (Phase 1, Phase 2, and Refinements).
 - [ ] **Live Demo Link**: [StellarStream Vercel](https://stellarstream-mvp.vercel.app)
-- [ ] **Demo Video**: [Youtube/Loom Link Placeholder]
+- [x] **Demo Video**: [docs/assets/stellarstream_final_demo.webp](docs/assets/stellarstream_final_demo.webp)
 
 ## Getting Started
 ```bash
