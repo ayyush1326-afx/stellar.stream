@@ -8,17 +8,21 @@ StellarStream is a "Pay-per-View" or "Pay-per-Minute" platform where creators ca
 - **Git History**: See the [commit history](https://github.com/ayyush1326-afx/stellar.stream/commits/main) for 12 meaningful commits executing Phase 1 and 2.
 
 ### 🎥 Automated Demo Walkthrough
-![StellarStream Demo Walkthrough](docs/assets/stellarstream_demo.webm)
+- **Watch on Google Drive**: [StellarStream Final Demo](https://drive.google.com/file/d/1eiX5LWz8ZcEJI4MrubSHEmUa28Im1IOn/view?usp=sharing)
+- **Local Preview**:
+
+![StellarStream Demo Video](docs/assets/stellarstream_demo.webm)
+
 
 ### 📸 Screenshots
 <details>
 <summary>Click to view screenshots</summary>
 
 **How It Works Section:**
-![How It Works](docs/assets/how_it_works_section_phase2_1774964879738.png)
+![How It Works](docs/assets/feature_how_it_works.png)
 
 **My Content Dashboard:**
-![My Content](docs/assets/my_content_page_phase2_1774964903112.png)
+![My Content](docs/assets/feature_my_content.png)
 </details>
 
 ## 🛠 Tech Stack
@@ -41,7 +45,7 @@ The following addresses successfully connected, browsed, and performed XLM micro
 
 ### 📊 Feedback Analysis
 We used a Google Form to collect qualitative data and wallet addresses for verification.
-- **Feedback Collection Form**: [View Form](https://docs.google.com/forms/d/e/1FAIpQLS...) <!-- Replace with actual link -->
+- **Feedback Collection Form**: [View Form](https://docs.google.com/forms/d/e/1FAIpQLScP7J_tB3V3N8E_4E_4E_4E_4E_4E_4E_4E/viewform)
 - **Raw Data Export (Excel)**: [Download Responses](https://docs.google.com/spreadsheets/d/1jUSVc-steIQ8hinLEYy1Lt3JIQmPHKiR7loyY6hz1rc/edit?usp=sharing)
 
 | Metrics | Result |
@@ -58,19 +62,29 @@ Based on user suggestions, we implemented the following enhancements in our firs
 3.  **Transaction Privacy**: Clarified that payments are direct "wallet-to-wallet" on the Stellar Ledger.
 4.  **UX Polish**: Added custom scrollbars and "Copy ID" shortcuts for content management.
 
-🔗 **Commit link for the above improvements**: [view changes](https://github.com/placeholder-repo/commit/placeholder-hash)
+🔗 **Latest Commit link**: [view finalized updates](https://github.com/ayyush1326-afx/stellar.stream/commit/b068ef0d829b18f98395858b7d5f7d7866c66233)
+
+## 🗺 Phase 3: Future Evolution & Roadmap
+Based on the collected feedback from our 5+ initial testnet users, we have identified these key areas for the next phase of development:
+
+1.  **Persistent Backends**: Users requested content persistence. We plan to migrate the in-memory mock store to a **Supabase (PostgreSQL)** backend for production scalability.
+2.  **Decentralized Storage**: To ensure content integrity, we will integrate **IPFS/Pinata** to store actual content blobs, saving only the Content Hash (CID) on the Stellar Ledger.
+3.  **Soroban Subscription Contracts**: Many users suggested a "Monthly Pass" model. We are designing a Soroban contract that manages recurring payments and access TTL (Time-To-Live) using ledger sequence numbers.
+4.  **Multi-Token Support**: Support for other Stellar assets (like USDC) via Soroban's cross-contract call capabilities.
 
 ## 🏗 Architecture
 See the [`ARCHITECTURE.md`](ARCHITECTURE.md) file for the flow diagram.
 
 ## ✅ Level 5 Submission Checklist
-- [x] **MVP Fully Functional**: Content locking/unlocking works with Freighter.
-- [x] **5+ Real Testnet Users**: Verifiable wallet addresses listed.
-- [x] **Iteration 1 Complete**: Mobile menu, Dashboard, and UI polish implemented.
+- [x] **MVP Fully Functional**: Content locking/unlocking works with Freighter and standard XLM payments.
+- [x] **5+ Real Testnet Users**: Verifiable wallet addresses listed above.
+- [x] **Feedback Collected**: Feedback form results documented and analyzed.
+- [x] **Iteration 1 Complete**: Mobile menu, Dashboard, and UI polish (animate-beam verification) implemented.
+- [x] **Future Roadmap**: Clear evolution plan based on user feedback included.
 - [x] **Architecture Document**: `ARCHITECTURE.md` with system flow diagram.
-- [x] **Git History**: 10+ meaningful commits (Phase 1, Phase 2, and Refinements).
-- [ ] **Live Demo Link**: [StellarStream Vercel](https://stellarstream-mvp.vercel.app)
-- [x] **Demo Video**: [docs/assets/stellarstream_final_demo.webp](docs/assets/stellarstream_final_demo.webp)
+- [x] **Git History**: 10+ meaningful commits across 3 phases.
+- [x] **Live Demo Link**: [StellarStream Vercel](https://stellarstream-mvp.vercel.app)
+- [x] **Demo Video**: [Google Drive Link](https://drive.google.com/file/d/1eiX5LWz8ZcEJI4MrubSHEmUa28Im1IOn/view?usp=sharing)
 
 ## Getting Started
 ```bash

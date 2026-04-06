@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "record": "node scripts/record-demo.mjs",
+    "automate:demo": "node scripts/full-automate.mjs"
   },
   "dependencies": {
     "@stellar/freighter-api": "^6.0.1",

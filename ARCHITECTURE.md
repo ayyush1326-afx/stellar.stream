@@ -30,6 +30,13 @@ sequenceDiagram
     User->>Frontend: Reads Full Content
 ```
 
+## 🎥 Demo Video
+
+For a visual walkthrough of the system flow and key features:
+
+![StellarStream Demo Video](docs/assets/stellarstream_demo.webm)
+
+
 ## System Components
 
 ### 1. Frontend (Next.js)

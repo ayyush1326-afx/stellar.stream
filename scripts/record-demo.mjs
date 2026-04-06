@@ -27,9 +27,12 @@ import path from 'path';
     await page.goto('http://localhost:3000');
     await page.waitForTimeout(2000);
     
-    // Scroll down slowly
+    // Screenshot: How it Works
     await page.evaluate(() => window.scrollBy({ top: 600, behavior: 'smooth' }));
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(1000);
+    await page.screenshot({ path: path.join(videoDir, 'feature_how_it_works.png') });
+    console.log("Captured: feature_how_it_works.png");
+    
     await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
     await page.waitForTimeout(1000);
 
@@ -40,11 +43,7 @@ import path from 'path';
     console.log("Navigating to Feed...");
     await page.click('text=Feed');
     await page.waitForTimeout(2000);
-    await page.evaluate(() => window.scrollBy({ top: 300, behavior: 'smooth' }));
-    await page.waitForTimeout(1500);
-    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    await page.waitForTimeout(1000);
-
+    
     console.log("Simulating Content Unlocking...");
     await page.click('button:has-text("Pay 0.5 XLM to Unlock")');
     await page.waitForTimeout(2500); // 1.2s mock delay + toast
@@ -54,6 +53,10 @@ import path from 'path';
     console.log("Navigating to Creator Dashboard...");
     await page.click('text=My Content');
     await page.waitForTimeout(2500);
+    
+    // Screenshot: My Content
+    await page.screenshot({ path: path.join(videoDir, 'feature_my_content.png') });
+    console.log("Captured: feature_my_content.png");
 
     console.log("Navigating to History...");
     await page.click('text=History');
@@ -67,11 +70,11 @@ import path from 'path';
     await context.close();
     await browser.close();
 
-    console.log("Video captured and saved to docs/assets/");
+    console.log("Video and screenshots captured in docs/assets/");
     
     // Find the newest webm file and rename it
     const files = fs.readdirSync(videoDir);
-    const videoFile = files.find(f => f.endsWith('.webm'));
+    const videoFile = files.find(f => f.endsWith('.webm') && f !== 'stellarstream_demo.webm');
     
     if (videoFile) {
         const oldPath = path.join(videoDir, videoFile);

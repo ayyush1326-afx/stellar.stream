@@ -75,10 +75,13 @@ export default function Paywall({ item }: { item: ContentItem }) {
               <button
                 onClick={handleUnlock}
                 disabled={loading}
-                className="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-xl font-bold shadow-lg hover:shadow-pink-500/25 transition-all transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className={`px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-xl font-bold shadow-lg hover:shadow-pink-500/25 transition-all transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 ${loading ? 'animate-beam' : ''}`}
               >
                 {loading ? (
-                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    <span>Verifying On-Chain...</span>
+                  </>
                 ) : (
                   `Pay ${item.priceXLM} XLM to Unlock`
                 )}
