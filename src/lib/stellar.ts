@@ -32,17 +32,37 @@ export async function payCreator(creatorAddress: string, priceXLM: string, sende
       .setTimeout(30)
       .build();
 
-    const xdr = (tx as any).toXDR("base64");
+    let xdr = (tx as any).toXDR("base64");
     console.log("Requesting signature from Freighter for XDR:", xdr);
     
-    const signedXdr = await signTransaction(xdr, { network: "TESTNET" } as any);
+    let signedXdr = await signTransaction(xdr, { network: "TESTNET" } as any);
     console.log("Signature response received:", signedXdr);
     
-    const finalXdr = typeof signedXdr === 'string' ? signedXdr : (signedXdr as any).signedTxXdr;
+    let finalXdr = typeof signedXdr === 'string' ? signedXdr : (signedXdr as any).signedTxXdr;
     
     if (!finalXdr) {
       throw new Error("Failed to get signed transaction from Freighter (User may have canceled)");
     }
+
+    // --- Level 6: Fee Sponsorship Logic ---
+    try {
+        console.log("Attempting Fee Sponsorship (Gasless)...");
+        const sponsorRes = await fetch('/api/sponsor-fee', {
+            method: 'POST',
+            body: JSON.stringify({ xdr: finalXdr })
+        });
+        
+        if (sponsorRes.ok) {
+            const { sponsoredXdr } = await sponsorRes.json();
+            console.log("Sponsorship successful! Using sponsored XDR.");
+            finalXdr = sponsoredXdr;
+        } else {
+            console.warn("Sponsorship unavailable, proceeding with user-paid transaction.");
+        }
+    } catch (sponsorErr) {
+        console.error("Sponsorship call failed:", sponsorErr);
+    }
+    // ---------------------------------------
 
     const txToSubmit = TransactionBuilder.fromXDR(finalXdr as string, "Test SDF Network ; September 2015");
     const txHash = txToSubmit.hash().toString('hex');
