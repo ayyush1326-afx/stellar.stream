@@ -66,7 +66,7 @@ StellarStream follows a **Pure dApp Pattern**: the Soroban Ledger is the single 
 
 ---
 
-### ⬛ Level 5 — MVP Features
+### ⬜ Level 5 — MVP Submission Features
 
 | Feature | Status | Details |
 | :--- | :--- | :--- |
@@ -84,7 +84,7 @@ StellarStream follows a **Pure dApp Pattern**: the Soroban Ledger is the single 
 | Document | Description | Link |
 | :--- | :--- | :--- |
 | 📖 Architecture | Technical breakdown of data flow and system sequence diagram | [Read →](ARCHITECTURE.md) |
-| 🏗️ Submission Kit | Final Level 5 Checklist and project verification status | [Read →](#-level-5-submission-checklist) |
+| 📐 Onboarding Guide | Step-by-step guide for creating and joining content pools | [Read →](user_onboarding_guide.md) |
 | 🧪 Feedback Logs | User testing iterations and results | [Read →](#-user-testnet-validation--feedback) |
 
 ---
@@ -127,7 +127,7 @@ StellarStream-MVP/
 | 4 | Shantanu Udhane | `GCRA6G5ZLEKWNFFN3LP2GS2KXZ74C7 H2P5AIKOMD42KYNB3IJMP4CH52` | Perfect; scale for large user onboarding. |
 | 5 | Yash Annadate | `GB6B6QEJFY4HAKATRO6MI77WDZ66W4FFPJN6AYLISJEHTLXYFPHQFFTV` | Overall good application! |
 
-> **Analytic Insight:** With an **Average Rating of 4.8/5**, data analyzed from 5 verified testnet users shows high satisfaction. Key improvements were focused on **Cross-Wallet support** and **Onboarding Scaling**—both implemented in the latest Iteration.
+> **Analytic Insight:** With an **Average Rating of 4.8/5**, data analyzed from 5 verified testnet users shows high satisfaction. Key improvements were focused on **Albedo Wallet support** and **Mobile Experience Optimization**—both implemented in the latest Iteration.
 
 ---
 
@@ -160,14 +160,15 @@ npm run automate:demo
 
 ### ✅ Level 5 Submission Checklist
 - [x] **MVP Fully Functional**: Content locking/unlocking works with Freighter.
-- [x] **5+ Real Testnet Users**: Verifiable wallet addresses documented above.
-- [x] **Feedback Collected**: Data analyzed and iteration plan executed.
+- [x] **5+ Real Testnet Users**: 5 verifiable wallet addresses documented above.
+- [x] **Feedback Collected**: Data analyzed (4.8/5 rating) and iteration plan executed.
 - [x] **Iteration 1 Complete**: Mobile menu, Creator Dashboard, and UI polish.
 - [x] **Future Roadmap**: Clear evolution plan (Supabase, IPFS) included.
 - [x] **Architecture Document**: `ARCHITECTURE.md` with flow diagram.
+- [x] **Git History**: 10+ meaningful commits across execution phases.
 
 ---
 
 Built by **ayyush1326-afx** 👨‍💻  
 Released under the **MIT License**  
-**Stellar Journey to Mastery 2026**
+**Level 5 Certification — Stellar Journey 2026**
