@@ -104,7 +104,7 @@ export default function UploadPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full px-6 py-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-xl font-bold text-lg shadow-lg hover:opacity-90 transition-opacity disabled:opacity-50 flex justify-center items-center"
+          className="w-full px-6 py-4 bg-primary hover:bg-primary-hover text-white rounded-xl font-bold text-lg shadow-lg shadow-primary/20 transition-all disabled:opacity-50 flex justify-center items-center"
         >
           {loading ? (
             <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>

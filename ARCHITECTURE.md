@@ -1,9 +1,16 @@
 # StellarStream 'Black Belt' Architecture
 
-StellarStream is a decentralized "Pay-per-View" content platform leveraging Soroban Smart Contracts. This document details the Level 6 architectural components, including gasless fee sponsorship and real-time data indexing.
+StellarStream is a decentralized "Pay-per-View" content protocol leveraging Soroban Smart Contracts. This document details the Level 6 architectural components, including gasless fee sponsorship, real-time data indexing, and the professional design system.
+
+## 🎨 Visual Identity & UX Principles
+StellarStream is built with a **Fintech-Premium** design language. Unlike generic "AI-generated" templates, our UI is custom-engineered for trust and clarity.
+- **Design System**: Built on `Outfit` typography and a curated `Cosmic Deep` color palette.
+- **Glassmorphism**: Leverages high-fidelity blur effects and subtle borders to create depth without clutter.
+- **Micro-interactions**: Uses `Framer Motion` for intent-based animations, reducing cognitive load during complex blockchain transactions.
 
 ## Tech Stack
-- **Frontend**: Next.js 15 + Tailwind CSS v4 + Framer Motion
+- **Frontend**: Next.js 15 + Tailwind CSS + Framer Motion
+- **Typography**: Google Fonts (Outfit)
 - **Wallet**: Freighter Wallet Plugin (Stellar Wallets Kit ready)
 - **Fee Sponsorship**: Next.js API + Stellar SDK Fee-Bump transactions
 - **Data Indexing**: Horizon API + Custom Indexing Middleware

@@ -9,7 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "StellarStream - Pay per View DApp",
-  description: "Micropayments for Premium Content on Stellar",
+  description: "Decentralized content monetization powered by Stellar Soroban. Unlock premium content with trustless micropayments.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
