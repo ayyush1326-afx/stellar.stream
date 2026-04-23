@@ -48,8 +48,11 @@ export default function Navbar() {
               <Link href="/upload" className="text-slate-400 hover:text-white font-medium transition-colors text-sm tracking-wide">
                 Create
               </Link>
+              <Link href="/dashboard" className="text-slate-400 hover:text-white font-medium transition-colors text-sm tracking-wide">
+                Metrics
+              </Link>
               <Link href="/my-content" className="text-slate-400 hover:text-white font-medium transition-colors text-sm tracking-wide">
-                Dashboard
+                My Content
               </Link>
               <Link href="/history" className="text-slate-400 hover:text-white font-medium transition-colors text-sm tracking-wide">
                 History
@@ -95,8 +98,11 @@ export default function Navbar() {
           <Link href="/upload" onClick={() => setMenuOpen(false)} className="block text-xl font-medium text-slate-400 hover:text-white transition-colors">
             Create Content
           </Link>
+          <Link href="/dashboard" onClick={() => setMenuOpen(false)} className="block text-xl font-medium text-slate-400 hover:text-white transition-colors">
+            Metrics Dashboard
+          </Link>
           <Link href="/my-content" onClick={() => setMenuOpen(false)} className="block text-xl font-medium text-slate-400 hover:text-white transition-colors">
-            Creator Dashboard
+            My Content
           </Link>
           <Link href="/history" onClick={() => setMenuOpen(false)} className="block text-xl font-medium text-slate-400 hover:text-white transition-colors">
             Transaction History

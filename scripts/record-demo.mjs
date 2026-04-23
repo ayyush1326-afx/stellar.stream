@@ -45,7 +45,7 @@ import path from 'path';
     await page.waitForTimeout(2000);
     
     console.log("Simulating Content Unlocking...");
-    await page.click('button:has-text("Pay 0.5 XLM to Unlock")');
+    await page.click('button:has-text("Unlock Full Access")');
     await page.waitForTimeout(2500); // 1.2s mock delay + toast
     await page.evaluate(() => window.scrollBy({ top: 300, behavior: 'smooth' }));
     await page.waitForTimeout(2500);
