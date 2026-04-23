@@ -53,8 +53,9 @@ We believe in data-driven iteration. Our Level 5 MVP has been validated by real 
 | **User Satisfaction Rating** | 4.8 / 5.0 |
 
 > [!TIP]
-> You can download the full raw feedback data here:  
-> 📥 **[User_Feedback_Responses.csv](docs/User_Feedback_Responses.csv)** (Excel Compatible)
+> You can view the full raw feedback data here:  
+> 📊 **[Live User Feedback Responses (Google Sheets)](https://docs.google.com/spreadsheets/d/1jUSVc-steIQ8hinLEYy1Lt3JIQmPHKiR7loyY6hz1rc/edit?usp=sharing)**
+> 📥 *Or download the offline file:* [User_Feedback_Responses.csv](docs/User_Feedback_Responses.csv)
 
 ---
 
