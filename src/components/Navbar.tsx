@@ -7,21 +7,25 @@ import WalletConnect from "./WalletConnect";
 const Logo = () => (
   <div className="flex items-center gap-2 group cursor-pointer">
     <div className="relative w-10 h-10 flex items-center justify-center">
-      <div className="absolute inset-0 bg-primary/20 rounded-xl blur-lg group-hover:bg-primary/30 transition-all duration-500"></div>
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 transform group-hover:scale-110 transition-transform duration-500">
-        <path d="M12 4L24 10L12 16L4 10L12 4Z" fill="url(#logo-gradient)" fillOpacity="0.9"/>
-        <path d="M12 16L24 22L12 28L4 22L12 16Z" fill="white" fillOpacity="0.2"/>
-        <path d="M12 10V22M24 10V22M4 10V22" stroke="white" strokeWidth="0.5" strokeOpacity="0.3"/>
+      <div className="absolute inset-x-0 bottom-0 top-1/2 bg-primary/20 rounded-full blur-xl group-hover:bg-primary/40 transition-all duration-500"></div>
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 transform group-hover:scale-105 transition-transform duration-500">
+        {/* Stream Wave */}
+        <path d="M4 17C10 17 12 10 17 10C22 10 24 17 30 17" stroke="url(#stream-gradient)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+        {/* Outer S */}
+        <path d="M24 12C24 9 20 7 17 7C12 7 9 11 9 15C9 19 14 20 17 21C21 22 25 24 25 28C25 32 20 33 17 33C13 33 10 32 8 28" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+        {/* Inner Diamond/Star */}
+        <path d="M17 14L18.5 17L21.5 18.5L18.5 20L17 23L15.5 20L12.5 18.5L15.5 17L17 14Z" fill="url(#stream-gradient)"/>
+        
         <defs>
-          <linearGradient id="logo-gradient" x1="4" y1="4" x2="24" y2="28" gradientUnits="userSpaceOnUse">
+          <linearGradient id="stream-gradient" x1="4" y1="10" x2="30" y2="33" gradientUnits="userSpaceOnUse">
             <stop stopColor="#6366F1" />
             <stop offset="1" stopColor="#D946EF" />
           </linearGradient>
         </defs>
       </svg>
     </div>
-    <span className="text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors duration-300">
-      Stellar<span className="font-light">Stream</span>
+    <span className="text-2xl font-black tracking-tighter text-white group-hover:text-primary transition-colors duration-300">
+      Stellar<span className="font-light text-slate-300">Stream</span>
     </span>
   </div>
 );

@@ -1,22 +1,20 @@
 import Link from "next/link";
 
 const Logo = () => (
-  <div className="flex items-center gap-2 mb-4">
-    <div className="relative w-8 h-8 flex items-center justify-center">
-      <div className="absolute inset-0 bg-primary/20 rounded-lg blur-md"></div>
-      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10">
-        <path d="M12 4L24 10L12 16L4 10L12 4Z" fill="url(#footer-logo-gradient)" fillOpacity="0.9"/>
-        <path d="M12 16L24 22L12 28L4 22L12 16Z" fill="white" fillOpacity="0.2"/>
-        <defs>
-          <linearGradient id="footer-logo-gradient" x1="4" y1="4" x2="24" y2="28" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#6366F1" />
-            <stop offset="1" stopColor="#D946EF" />
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-    <span className="text-lg font-bold tracking-tight text-white">
-      Stellar<span className="font-light">Stream</span>
+  <div className="flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity">
+    <svg width="24" height="24" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 17C10 17 12 10 17 10C22 10 24 17 30 17" stroke="url(#footer-stream)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M24 12C24 9 20 7 17 7C12 7 9 11 9 15C9 19 14 20 17 21C21 22 25 24 25 28C25 32 20 33 17 33C13 33 10 32 8 28" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M17 14L18.5 17L21.5 18.5L18.5 20L17 23L15.5 20L12.5 18.5L15.5 17L17 14Z" fill="url(#footer-stream)"/>
+      <defs>
+        <linearGradient id="footer-stream" x1="4" y1="10" x2="30" y2="33" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#6366F1" />
+          <stop offset="1" stopColor="#D946EF" />
+        </linearGradient>
+      </defs>
+    </svg>
+    <span className="text-xl font-black tracking-tighter text-white">
+      Stellar<span className="font-light text-slate-300">Stream</span>
     </span>
   </div>
 );
