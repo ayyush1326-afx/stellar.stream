@@ -11,7 +11,7 @@
 
 StellarStream is a next-generation decentralized content protocol built on **Soroban**. It enables creators to monetize their work through precision micropayments, eliminating the friction of traditional subscription models. Every unlock is a trustless, pure-on-chain event.
 
-🔴 **[Launch Live Platform](https://stellarstream-mvp.vercel.app)**  
+🚀 **[Launch Live Platform](https://stellar-stream-roan.vercel.app/)**  
 🎥 **[Watch the Technical Walkthrough](docs/assets/stellarstream_demo.webm)**
 
 ---
