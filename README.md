@@ -23,6 +23,17 @@ StellarStream was designed to inspire confidence through a premium, fintech-firs
 
 ---
 
+## 📸 Application Showcase
+Here is a swift glance at the functional MVP interfaces recorded in our latest testnet run:
+
+### How it Works
+![How it Works](docs/assets/feature_how_it_works.png)
+
+### Creator Dashboard
+![My Content Dashboard](docs/assets/feature_my_content.png)
+
+---
+
 ## 🏗 High-Level Architecture
 The system operates as a pure dApp where the Soroban ledger acts as the single source of truth for access rights.
 
