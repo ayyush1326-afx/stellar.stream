@@ -26,6 +26,12 @@ StellarStream was designed to inspire confidence through a premium, fintech-firs
 ## 📸 Application Showcase
 Here is a swift glance at the functional MVP interfaces recorded in our latest testnet run:
 
+### Full Demo Walkthrough
+
+<video src="docs/assets/stellarstream_demo.webm" controls="controls" width="100%" style="max-width: 800px; display: block; margin: 0 auto;"></video>
+
+*(If the video player doesn't load above, [Click Here to View/Download](docs/assets/stellarstream_demo.webm))*
+
 ### How it Works
 ![How it Works](docs/assets/feature_how_it_works.png)
 
