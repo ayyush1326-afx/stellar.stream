@@ -32,11 +32,23 @@ Here is a swift glance at the functional MVP interfaces recorded in our latest t
 
 *(If the video player doesn't load above, [Click Here to View/Download](docs/assets/stellarstream_demo.webm))*
 
-### How it Works
-![How it Works](docs/assets/feature_how_it_works.png)
+### 1. Feed & Unlock Content
+![Content Feed](docs/assets/feature_feed.png)
 
-### Creator Dashboard
-![My Content Dashboard](docs/assets/feature_my_content.png)
+### 2. Upload / Create
+![Upload Content](docs/assets/feature_upload.png)
+
+### 3. Creator Dashboard (Metrics)
+![Metrics Dashboard](docs/assets/feature_dashboard.png)
+
+### 4. My Content Library
+![My Content](docs/assets/feature_my_content.png)
+
+### 5. Transaction History
+![History](docs/assets/feature_history.png)
+
+### 6. How it Works (Homepage)
+![How it Works](docs/assets/feature_how_it_works.png)
 
 ---
 
