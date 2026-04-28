@@ -736,28 +736,6 @@ We welcome contributions from the Stellar community! Here's how you can help:
 
 ---
 
-## 📞 Support & Resources
-
-### Documentation
-- **API Reference**: [docs.stellarstream.app/api](https://docs.stellarstream.app/api)
-- **Developer Guide**: [docs.stellarstream.app/developers](https://docs.stellarstream.app/developers)
-- **User Manual**: [docs.stellarstream.app/users](https://docs.stellarstream.app/users)
-- **Smart Contract Docs**: [docs.stellarstream.app/contracts](https://docs.stellarstream.app/contracts)
-
-### Community
-- **Discord**: [discord.gg/stellarstream](https://discord.gg/stellarstream)
-- **Telegram**: [@stellarstream_official](https://t.me/stellarstream_official)
-- **Twitter**: [@StellarStreamApp](https://twitter.com/StellarStreamApp)
-- **GitHub Discussions**: [Community Forum](https://github.com/ayyush1326-afx/stellar.stream/discussions)
-
-### Professional Support
-- **Enterprise Inquiries**: enterprise@stellarstream.app
-- **Partnership Opportunities**: partnerships@stellarstream.app
-- **Security Reports**: security@stellarstream.app
-- **General Support**: support@stellarstream.app
-
----
-
 ## 📄 License & Legal
 
 ### Open Source License
