@@ -108,6 +108,39 @@ We believe in data-driven iteration. Our Level 5 MVP has been validated by real 
 
 ---
 
+## 🔧 Recent Bug Fixes & Improvements
+
+### ✅ Freighter Network Mismatch Fix
+**Problem:** Transactions were being built with `{ network: "TESTNET" }` which is the legacy Freighter API v5 format. Freighter API v6 changed the signing options interface, causing the wallet to interpret the transaction as a Mainnet transaction — resulting in the error *"The transaction you're trying to sign is on Main Net. Signing this transaction is not possible at the moment."*
+
+**Fix:** Updated both `recordContentOnChain` and `payCreator` in `src/lib/stellar.ts` to pass `{ networkPassphrase: Networks.TESTNET }` to `signTransaction`, which correctly identifies the transaction as Testnet to Freighter v6.
+
+```ts
+// Before (broken with Freighter API v6)
+await signTransaction(xdr, { network: "TESTNET" });
+
+// After (fixed)
+await signTransaction(xdr, { networkPassphrase: Networks.TESTNET });
+```
+
+---
+
+### ✅ Full Transaction History (Uploads + Payments)
+**Problem:** The Transaction History page only fetched outgoing `payment` operations from Horizon, so content upload transactions (which are `manage_data` operations) were never shown — leaving the history page empty even after successful uploads.
+
+**Fix:** The history page now queries both Horizon endpoints:
+- `/accounts/{addr}/payments` — captures XLM payment unlocks
+- `/accounts/{addr}/operations` — captures `manage_data` upload records (filtered by `ss_` key prefix)
+
+Upload transactions are grouped by transaction hash (since each upload writes 3 ManageData entries) and displayed with a distinct purple **Upload** badge and arrow icon, while payment unlocks retain the green checkmark style. Every row includes a **View on Explorer →** link to Stellar Expert.
+
+**New `TxRecord` type field:**
+```ts
+type?: "payment" | "upload"  // distinguishes unlock payments from content uploads
+```
+
+---
+
 ## 🚀 Future Roadmap
 - [ ] **IPFS Integration**: Moving off-chain metadata to decentralized storage for full stack decentralization.
 - [ ] **Dynamic Pricing**: AI-driven pricing models based on content demand and quality.

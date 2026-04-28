@@ -12,6 +12,7 @@ export interface TxRecord {
   amount: string;
   date: string;
   source: "local" | "horizon";
+  type?: "payment" | "upload";
 }
 
 const STORAGE_KEY = "stellarstream_tx_history";

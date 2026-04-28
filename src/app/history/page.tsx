@@ -47,19 +47,20 @@ export default function HistoryPage() {
       if (addr) {
         setAddress(addr);
 
-        // 3. Fetch from Horizon
+        // 3. Fetch from Horizon (both payments and uploads)
         let horizonTxs: TxRecord[] = [];
         try {
-          const response = await fetch(
+          // Fetch payment transactions (content unlocks)
+          const paymentsResponse = await fetch(
             `https://horizon-testnet.stellar.org/accounts/${addr}/payments?order=desc&limit=25`
           );
           
-          if (response.ok) {
-            const data = await response.json();
-            const records = data._embedded?.records || [];
-            console.log("[History] Horizon records fetched:", records.length);
+          if (paymentsResponse.ok) {
+            const paymentsData = await paymentsResponse.json();
+            const paymentRecords = paymentsData._embedded?.records || [];
+            console.log("[History] Horizon payment records fetched:", paymentRecords.length);
 
-            horizonTxs = records
+            const paymentTxs = paymentRecords
               .filter((r: any) => r.type === "payment" && r.from === addr)
               .map((r: any) => ({
                 id: r.id || String(Math.random()),
@@ -75,10 +76,53 @@ export default function HistoryPage() {
                   minute: "2-digit",
                 }),
                 source: "horizon" as const,
+                type: "payment" as const,
               }));
-            console.log("[History] Horizon outgoing payments:", horizonTxs.length);
+            horizonTxs.push(...paymentTxs);
+            console.log("[History] Horizon outgoing payments:", paymentTxs.length);
           } else {
-            console.warn("[History] Horizon returned status:", response.status);
+            console.warn("[History] Horizon payments returned status:", paymentsResponse.status);
+          }
+
+          // Fetch upload transactions (ManageData operations)
+          const operationsResponse = await fetch(
+            `https://horizon-testnet.stellar.org/accounts/${addr}/operations?order=desc&limit=50`
+          );
+          
+          if (operationsResponse.ok) {
+            const operationsData = await operationsResponse.json();
+            const operationRecords = operationsData._embedded?.records || [];
+            console.log("[History] Horizon operation records fetched:", operationRecords.length);
+
+            const uploadTxs = operationRecords
+              .filter((r: any) => r.type === "manage_data" && r.name?.startsWith("ss_"))
+              .reduce((acc: any[], r: any) => {
+                // Group by transaction hash to avoid duplicates (3 ManageData ops per upload)
+                if (!acc.find((tx) => tx.hash === r.transaction_hash)) {
+                  const contentId = r.name.match(/^ss_(.+)_[pts]$/)?.[1] || "unknown";
+                  acc.push({
+                    id: r.id || String(Math.random()),
+                    hash: r.transaction_hash || "",
+                    contentSnippet: `Content Upload (ID: ${contentId.slice(0, 7)})`,
+                    creator: addr,
+                    amount: "On-Chain Record",
+                    date: new Date(r.created_at).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    }),
+                    source: "horizon" as const,
+                    type: "upload" as const,
+                  });
+                }
+                return acc;
+              }, []);
+            horizonTxs.push(...uploadTxs);
+            console.log("[History] Horizon upload operations:", uploadTxs.length);
+          } else {
+            console.warn("[History] Horizon operations returned status:", operationsResponse.status);
           }
         } catch (horizonErr) {
           console.warn("[History] Horizon fetch failed:", horizonErr);
@@ -229,10 +273,16 @@ export default function HistoryPage() {
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
+                    <div className={`w-6 h-6 rounded-full ${tx.type === "upload" ? "bg-gradient-to-br from-purple-500 to-pink-500" : "bg-gradient-to-br from-primary to-accent"} flex items-center justify-center flex-shrink-0`}>
+                      {tx.type === "upload" ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                        </svg>
+                      ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      )}
                     </div>
                     <p className="font-semibold text-white text-sm truncate">
                       {tx.contentSnippet}
@@ -242,13 +292,18 @@ export default function HistoryPage() {
                         Pending Sync
                       </span>
                     )}
+                    {tx.type === "upload" && (
+                      <span className="text-[9px] px-1.5 py-0.5 bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded-full font-bold uppercase tracking-wider flex-shrink-0">
+                        Upload
+                      </span>
+                    )}
                   </div>
                   <p className="text-[11px] text-slate-500 font-mono">
-                    To: {tx.creator.slice(0, 8)}...{tx.creator.slice(-4)}
+                    {tx.type === "upload" ? "Creator" : "To"}: {tx.creator.slice(0, 8)}...{tx.creator.slice(-4)}
                   </p>
                 </div>
                 <div className="text-right flex-shrink-0">
-                  <p className="font-bold text-primary text-lg">{tx.amount}</p>
+                  <p className={`font-bold ${tx.type === "upload" ? "text-purple-400" : "text-primary"} text-lg`}>{tx.amount}</p>
                   <p className="text-[11px] text-slate-500 mt-1">{tx.date}</p>
                   {tx.hash && (
                     <a
